@@ -1,35 +1,38 @@
 ---
 - name: Maintain an ssh key pair in ec2
   hosts: localhost
+  connection: local
+  gather_facts: no
+  vars:
+    ansible_python_interpreter: python
   tasks:
     - name: Make avaible your ssh plublic key in ec2 for new instances
       ec2_key:
-        name: example2
-        key_material: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCxej2UVvF2I0Vz0KznKIcZGX9/sSzgA3N+mR8/GXXrraywOY/ycyNi/gb5lNB5oGrSSn6HByPZQ9xEbvNT/0AAQEctJgTFcJjnD51QptRsFfqyr7ypxo6sbItBT2FLTb3hNIKRdwFKt2t0R6VPtt7lL3VxHTxszyI+5506hLYfvM0ERKXrxNUZaE9fjVOnd8xQMqnn/7Jck6JLn9J348hwEsZPKBrDmQMuS/mBg6VKGpdR9eWaehn5mioMIFw7xLbRM5HhEMLu35Rftn7M94i6UFcudBPeshRVLUJDMKyPpznPnqkGWAomf6wc5o4eOOKCwCINFtNd6MFehTWbtYH7 dabreu@za-lp-01'
+        name: "YOUR KEY NAME GOES HERE"
+        key_material: 'YOUR KEY GOES HERE'
         state: present
         region: "{{ item }}"
       with_items:
-        - us-east-2	#US East (Ohio)
-        - us-east-1	#US East (N. Virginia)
-        - us-west-1	#US West (N. California)
-        - us-west-2	#US West (Oregon)
-        - ap-east-1	#Asia Pacific (Hong Kong)
-        - ap-south-1	#Asia Pacific (Mumbai)
-  #      - ap-northeast-3	#Asia Pacific (Osaka-Local)
-        - ap-northeast-2	#Asia Pacific (Seoul)
-        - ap-southeast-1	#Asia Pacific (Singapore)
-        - ap-southeast-2	#Asia Pacific (Sydney)
-        - ap-northeast-1	#Asia Pacific (Tokyo)
-        - ca-central-1	#Canada (Central)
-  #      - cn-north-1	#China (Beijing)
-  #      - cn-northwest-1	#China (Ningxia)
-        - eu-central-1	#EU (Frankfurt)
-        - eu-west-1	#EU (Ireland)
-        - eu-west-2	#EU (London)
-        - eu-west-3	#EU (Paris)
-        - eu-north-1	#EU (Stockholm)
-        - me-south-1	#Middle East (Bahrain)
-        - sa-east-1	#South America (Sao Paulo)
-  #      - us-gov-east-1	#AWS GovCloud (US-East)
-  #      - us-gov-west-1	#AWS GovCloud (US-West)
-
+        - us-east-2	  #US East (Ohio)
+        - us-east-1	  #US East (N. Virginia)
+        - us-west-1	  #US West (N. California)
+        - us-west-2	  #US West (Oregon)
+        - ap-east-1	  #Asia Pacific (Hong Kong)
+        - ap-south-1	  #Asia Pacific (Mumbai)
+        - ap-northeast-2  #Asia Pacific (Seoul)
+        - ap-southeast-1  #Asia Pacific (Singapore)
+        - ap-southeast-2  #Asia Pacific (Sydney)
+        - ap-northeast-1  #Asia Pacific (Tokyo)
+        - ca-central-1	  #Canada (Central)
+        - eu-central-1	  #EU (Frankfurt)
+        - eu-west-1	  #EU (Ireland)
+        - eu-west-2	  #EU (London)
+        - eu-west-3	  #EU (Paris)
+        - eu-north-1	  #EU (Stockholm)
+        - me-south-1	  #Middle East (Bahrain)
+        - sa-east-1	  #South America (Sao Paulo)
+  #      - us-gov-east-1  #AWS GovCloud (US-East)
+  #      - us-gov-west-1  #AWS GovCloud (US-West)
+  #      - ap-northeast-3 #Asia Pacific (Osaka-Local)
+  #      - cn-north-1	  #China (Beijing)
+  #      - cn-northwest-1 #China (Ningxia)
