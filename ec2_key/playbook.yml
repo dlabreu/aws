@@ -6,7 +6,7 @@
   vars:
     ansible_python_interpreter: python
   tasks:
-    - name: Make avaible your ssh plublic key in ec2 for new instances
+    - name: Make available your ssh public key in ec2 for new instances
       ec2_key:
         name: "YOUR KEY NAME GOES HERE"
         key_material: 'YOUR KEY GOES HERE'
